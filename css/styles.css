@@ -4,10 +4,12 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 15px;
 }
 
 body {
   font-family: "Alata", sans-serif;
+  font-weight: 400;
   color: black;
 }
 
@@ -40,7 +42,7 @@ h3 {
 }
 
 h2 {
-  font-size: clamp(2rem, 1.6250rem + 1.7578vw, 3.5rem);
+  font-size: clamp(2rem, 1.6479rem + 1.4085vw, 3rem);
   text-align: center;
 }
 
@@ -54,6 +56,9 @@ img {
   max-width: 100%;
   width: 100%;
   display: block;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 a {
@@ -61,7 +66,7 @@ a {
 }
 
 .container {
-  width: min(1200px, 100% - 3rem);
+  width: min(1060px, 100% - 3rem);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[6];
@@ -79,11 +84,20 @@ a {
 }
 
 header {
+  background: black;
   background: url(../images/mobile/image-hero.jpg) no-repeat 50% 50%/cover;
   width: 100%;
   padding-block: 1.6em;
-  height: 80vh;
+  height: 650px;
   position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    padding-block: 3em;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00000021), to(#000000a4)), url(../images/desktop/image-hero.jpg) no-repeat 50% 50%/cover;
+    background: linear-gradient(#00000021, #000000a4), url(../images/desktop/image-hero.jpg) no-repeat 50% 50%/cover;
+  }
 }
 
 header .container {
@@ -93,8 +107,8 @@ header .container {
 
 @media screen and (min-width: 768px) {
   header .container {
-    -ms-grid-rows: 40px 0.5fr 0.5fr 0.5fr 40px;
-        grid-template-rows: 40px 0.5fr 0.5fr 0.5fr 40px;
+    -ms-grid-rows: 40px 1fr 1fr 0.5fr 40px;
+        grid-template-rows: 40px 1fr 1fr 0.5fr 40px;
   }
 }
 
@@ -102,7 +116,7 @@ header .hero {
   grid-column: span 6;
   border: 2.5px solid white;
   z-index: 0;
-  padding: 25px 25px 20px;
+  padding: 35px 35px 25px 35px;
 }
 
 @media screen and (min-width: 768px) {
@@ -117,7 +131,7 @@ header .hero {
 header .hero h1 {
   text-transform: uppercase;
   color: white;
-  font-size: clamp(2rem, 1.2500rem + 3.7500vw, 5rem);
+  font-size: clamp(2.5rem, 1.7958rem + 2.8169vw, 4.5rem);
 }
 
 header .hamb-menu {
@@ -190,7 +204,7 @@ header .logo, header nav ul li a {
 header .logo {
   grid-column: span 5;
   font-family: "Alata", sans-serif;
-  font-size: 1.8rem;
+  font-size: 2.3rem;
   position: relative;
   z-index: 5;
 }
@@ -208,9 +222,9 @@ header nav {
     display: flex;
     visibility: visible;
     grid-column: 8/-1;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
   }
 }
 
@@ -233,9 +247,6 @@ header nav ul li {
 
 header nav ul li a {
   text-transform: uppercase;
-  font-size: 1.8rem;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 300;
   position: relative;
 }
 
@@ -258,7 +269,6 @@ header nav ul li a:after {
 @media screen and (min-width: 768px) {
   header nav ul li a {
     text-transform: unset;
-    font-size: 1rem;
   }
 }
 
@@ -283,10 +293,19 @@ header nav.active ul {
   display: -ms-grid;
   display: grid;
   gap: 30px;
-  width: min(1200px, 100% - 3rem);
+  width: min(1060px, 100% - 3rem);
   margin: 0 auto;
   height: 320px;
   overflow: auto;
+}
+
+header nav.active ul a {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2rem;
+}
+
+header nav.active ul a::after {
+  left: 0;
 }
 
 .about {
@@ -301,8 +320,8 @@ header nav.active ul {
 
 @media screen and (min-width: 860px) {
   .about .container {
-    -ms-grid-rows: 167px 330px;
-        grid-template-rows: 167px 330px;
+    -ms-grid-rows: 160px 330px;
+        grid-template-rows: 160px 330px;
   }
 }
 
@@ -317,8 +336,8 @@ header nav.active ul {
     -ms-grid-row-span: 2;
     grid-row: 1/3;
     -ms-grid-column: 1;
-    -ms-grid-column-span: 7;
-    grid-column: 1/8;
+    -ms-grid-column-span: 8;
+    grid-column: 1/9;
   }
 }
 
@@ -331,21 +350,20 @@ header nav.active ul {
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
     grid-row: 2/3;
-    grid-column: 6/-1;
+    grid-column: 7/-1;
     padding: 3em;
   }
 }
 
 @media screen and (min-width: 980px) {
   .about .about-content {
-    padding: 5em;
+    padding: 5em 0 0 5em;
   }
 }
 
 .about p {
-  color: dimgray;
+  color: #8c8c8c;
   line-height: 1.8;
-  font-size: 1rem;
   padding: 0 15px;
 }
 
@@ -378,7 +396,7 @@ header nav.active ul {
 .creations h2 {
   margin-top: 0;
   grid-column: span 6;
-  margin-bottom: 35px;
+  margin-bottom: 50px;
 }
 
 @media screen and (min-width: 768px) {
@@ -408,11 +426,12 @@ header nav.active ul {
   letter-spacing: 1px;
   border: 1.5px solid black;
   display: inline-block;
-  padding: 12px 50px;
+  padding: 8px 50px 9px 50px;
   text-decoration: none;
   color: black;
   margin-top: 25px;
   cursor: pointer;
+  font-size: 1.067rem;
 }
 
 .creations .container .btn a:hover {
@@ -432,7 +451,7 @@ header nav.active ul {
   grid-column: span 6;
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
-  gap: 25px;
+  gap: 30px;
 }
 
 @media screen and (min-width: 768px) {
@@ -440,39 +459,40 @@ header nav.active ul {
     grid-column: span 12;
     -ms-grid-columns: (1fr)[12];
         grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 450px;
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
   }
 }
 
-.creations .gallery picture {
+.creations .gallery > div {
   position: relative;
   grid-column: span 6;
   cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
-  .creations .gallery picture {
+  .creations .gallery > div {
     grid-column: span 3;
   }
 }
 
-.creations .gallery picture .overlay {
+.creations .gallery > div .overlay {
   width: 100%;
   height: 100%;
   position: absolute;
   inset: 0;
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 0, 0, 0)), to(rgba(0, 0, 0, 0.632)));
-  background-image: linear-gradient(to left, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.632));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 0, 0, 0)), to(rgba(0, 0, 0, 0.45)));
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.45));
 }
 
-.creations .gallery picture .overlay h3 {
+.creations .gallery > div .overlay h3 {
   color: white;
   position: absolute;
   top: 0;
   left: 0;
-  padding: 20px;
+  padding: 1.1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -480,16 +500,22 @@ header nav.active ul {
       -ms-flex-align: end;
           align-items: end;
   height: 100%;
-  font-size: 24px;
+  font-size: 1.5rem;
   width: 100%;
 }
 
-.creations .gallery picture:hover .overlay {
+@media screen and (min-width: 930px) {
+  .creations .gallery > div .overlay h3 {
+    font-size: 2rem;
+  }
+}
+
+.creations .gallery > div:hover .overlay {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.7)));
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
 }
 
-.creations .gallery picture:hover .overlay h3 {
+.creations .gallery > div:hover .overlay h3 {
   color: black;
 }
 
@@ -497,19 +523,19 @@ footer {
   background-color: black;
   text-align: center;
   color: #8c8c8c;
-  padding: 2.5em 0 3em;
+  padding: 2.4em 0 3em;
 }
 
 @media screen and (min-width: 768px) {
   footer {
-    padding: 2.5em 0 2.6em;
+    padding: 2em 0 2.8em;
   }
 }
 
 footer .logo {
   color: white;
   font-family: "Alata", sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 footer .col-left,
@@ -523,21 +549,26 @@ footer .col-right {
   }
 }
 
+@media screen and (min-width: 768px) {
+  footer .col-right {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+}
+
 footer ul li {
   list-style: none;
 }
 
 footer ul li a {
   color: white;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 300;
 }
 
 footer ul.footer-menu {
   display: -ms-grid;
   display: grid;
   gap: 20px;
-  margin-top: 2em;
+  margin-top: 1.45em;
 }
 
 @media screen and (min-width: 768px) {
@@ -553,9 +584,6 @@ footer ul.footer-menu {
 }
 
 footer ul.footer-menu a {
-  font-size: 1.8rem;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 300;
   position: relative;
   font-size: 1rem;
 }
@@ -599,7 +627,8 @@ footer ul.socials {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    margin: 1.6em 0 1em;
+    margin: 0;
+    margin-bottom: 1.8em;
   }
 }
 
