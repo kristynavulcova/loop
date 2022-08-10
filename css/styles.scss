@@ -43,18 +43,12 @@ body {
 }
 
 section {
-	padding-top: 6em;
-
 	h2 {
 		margin: 35px 0 10px;
 
 		@include mQ(768px) {
 			margin: 0px 0 20px;
 		}
-	}
-
-	@include mQ(768px) {
-		padding-top: 8em;
 	}
 }
 
@@ -273,9 +267,11 @@ header {
 
 .about {
 	text-align: center;
+	padding: 8em 0;
 
 	@include mQ(768px) {
 		text-align: left;
+		padding: 10.5em 0 12em 0;
 	}
 
 	.container {
@@ -330,10 +326,10 @@ header {
 }
 
 .creations {
-	padding-bottom: 6em;
+	padding: 0 0 8em 0;
 
 	@include mQ(768px) {
-		padding-bottom: 8em;
+		padding: 0em 0 12em 0;
 	}
 
 	h2 {
@@ -343,6 +339,7 @@ header {
 
 		@include mQ(768px) {
 			order: 1;
+			margin-bottom: 75px;
 		}
 	}
 
